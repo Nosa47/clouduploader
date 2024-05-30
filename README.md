@@ -1,7 +1,6 @@
-# clouduploader
-A bash-based CLI tool for uploading files to cloud storage
+Certainly! Let's update the README.md file with the installation instructions, including the option to run the provided installation script. Here's the updated README.md:
 
-
+```markdown
 # Cloud Uploader CLI Tool
 
 ## Overview
@@ -15,12 +14,26 @@ The Cloud Uploader CLI Tool is a bash-based command-line utility that allows use
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Nosa47/clouduploader.git
+   git clone https://github.com/your-username/cloud-uploader.git
    ```
+
+2. Change into the cloned directory:
+   ```bash
+   cd cloud-uploader
+   ```
+
+3. Run the installation script to copy the script to a directory in your $PATH:
+   ```bash
+   sudo ./install.sh
+   ```
+
+   **Note:** The installation script will copy the `clouduploader.sh` script to `/usr/local/bin` and make it executable. You may need to enter your password for sudo access.
+
+   Alternatively, you can manually copy the script to a directory in your $PATH and make it executable.
 
 ## Usage
 ```bash
-./clouduploader.sh <file_path> <s3_directory> <storage_class>
+clouduploader.sh <file_path> <s3_directory> <storage_class>
 ```
 
 - `<file_path>`: Path to the file you want to upload.
@@ -29,7 +42,7 @@ The Cloud Uploader CLI Tool is a bash-based command-line utility that allows use
 
 Example:
 ```bash
-./clouduploader.sh /path/to/file.txt s3://my-bucket/my-folder/ STANDARD_IA
+clouduploader.sh /path/to/file.txt s3://my-bucket/my-folder/ STANDARD_IA
 ```
 
 ## Features
@@ -54,6 +67,9 @@ Contributions are welcome! Please fork the repository and submit a pull request.
 This project is licensed under the [MIT License](LICENSE).
 ```
 
-Ensure you replace placeholders such as `<file_path>`, `<s3_directory>`, and `<storage_class>` with actual usage instructions and examples specific to your tool. Additionally, provide detailed information on how to troubleshoot common issues and how to contribute to the project.
+### Changes:
+- Added Installation section with instructions to run the provided installation script or manually copy the script to a directory in the user's `$PATH`.
+- Updated Usage section to use `clouduploader.sh` instead of `./clouduploader.sh` for clarity.
+- Updated Prerequisites section to include AWS CLI and internet connectivity requirements.
 
-Feel free to customize the README.md further based on your project's specific features and requirements. Let me know if you need any further assistance with your README.md or if you have any questions!
+Feel free to customize the installation instructions further based on your preferences or any additional requirements specific to your tool. Let me know if you need any further assistance!
