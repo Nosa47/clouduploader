@@ -2,43 +2,20 @@
 
 # Function to display usage instructions
 usage() {
-    echo "Usage: $0 <file_path> [options]"
-    echo "Options:"
-    echo "  -d, --directory <directory_name>   Specify target cloud directory (optional)"
-    echo "  -s, --storage-class <class_name>   Specify storage class (optional)"
-    # Add more options as needed
+    echo "Usage: $0 <file_path> <s3_directory> <storage_class>"
     exit 1
 }
 
-# Parse command-line arguments
-while [[ $# -gt 0 ]]; do
-    key="$1"
-    case $key in
-        -d|--directory)
-            directory="$2"
-            shift 2
-            ;;
-        -s|--storage-class)
-            storage_class="$2"
-            shift 2
-            ;;
-        # Add more options parsing here if needed
-        *)
-            # Unknown option
-            echo "Error: Unknown option: $1"
-            usage
-            ;;
-    esac
-done
-
-# Check if the filename/path is provided
-if [ -z "$1" ]; then
-    echo "Error: File path not provided."
+# Check if all required arguments are provided
+if [ "$#" -ne 3 ]; then
+    echo "Error: Invalid number of arguments."
     usage
 fi
 
-# Extract filename/path from arguments
+# Extract arguments
 file_path="$1"
+s3_directory="$2"
+storage_class="$3"
 
 # Check if the file exists
 if [ ! -f "$file_path" ]; then
@@ -48,12 +25,8 @@ fi
 
 # Display parsed arguments (optional)
 echo "File path: $file_path"
-echo "Target directory: $directory"
+echo "S3 directory: $s3_directory"
 echo "Storage class: $storage_class"
 
-# Add upload logic here
-# For AWS S3, you can use the AWS CLI command 'aws s3 cp' to upload the file
-
-# Example AWS S3 upload command
-# aws s3 cp "$file_path" s3://bucket_name/$directory --storage-class $storage_class
-
+# Upload file to AWS S3
+aws s3 cp "$file_path" "s3://$s3_directory" --storage-class "$storage_class"
