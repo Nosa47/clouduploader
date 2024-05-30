@@ -21,7 +21,7 @@ storage_class="$3"
 filename=$(basename "$file_path")
 
 # Check if the file exists
-if [ ! -f "$filename" ]; then
+if [ ! -f "$file_path" ]; then
     echo "Error: File not found: $filename"
     exit 1
 fi
@@ -32,4 +32,8 @@ echo "S3 directory: $s3_directory"
 echo "Storage class: $storage_class"
 
 # Upload file to AWS S3
-aws s3 cp "$file_path" "s3://$s3_directory" --storage-class "$storage_class"
+if aws s3 cp "$file_path" "s3://$s3_directory" --storage-class "$storage_class"; then
+    echo "Upload successful: $filename to s3://$s3_directory"
+else
+    echo "Error: Failed to upload $filename to s3://$s3_directory"
+fi
