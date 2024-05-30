@@ -17,9 +17,12 @@ file_path="$1"
 s3_directory="$2"
 storage_class="$3"
 
+# Extract filename from file path
+filename=$(basename "$file_path")
+
 # Check if the file exists
-if [ ! -f "$file_path" ]; then
-    echo "Error: File not found: $file_path"
+if [ ! -f "$filename" ]; then
+    echo "Error: File not found: $filename"
     exit 1
 fi
 
