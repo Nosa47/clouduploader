@@ -1,5 +1,3 @@
-Certainly! Let's update the README.md file with the installation instructions, including the option to run the provided installation script. Here's the updated README.md:
-
 ```markdown
 # Cloud Uploader CLI Tool
 
