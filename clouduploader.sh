@@ -6,9 +6,9 @@ prompt() {
     echo "$input"
 }
 
-# Function to check internet connection
+# Function to check internet connection using DNS lookup
 check_internet_connection() {
-    ping -c 1 -W 2 google.com &> /dev/null
+    host -W 1 google.com >/dev/null
     return $?
 }
 
@@ -84,4 +84,3 @@ if aws s3 cp "$file_path" "s3://$s3_bucket/$s3_directory" --storage-class "$stor
 else
     echo "Error: Failed to upload $filename to s3://$s3_bucket/$s3_directory"
 fi
-
