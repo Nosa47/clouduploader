@@ -44,4 +44,3 @@ $ sudo rm /usr/local/bin/clouduploader
 This project is licensed under the [MIT License](LICENSE).
 ```
 
-This README.md file provides clear instructions on how to install and use the "clouduploader" CLI tool, as well as how to uninstall it if needed. It also mentions any dependencies required and includes a license section. Adjust it according to your specific tool and requirements.
